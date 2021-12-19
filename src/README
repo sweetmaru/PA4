@@ -1,0 +1,98 @@
+Name: Xiaofeng Luo
+USC NetID: 6101697403
+CS 455 PA4
+Fall 2021
+
+----------------------------------------------
+CERTIFY IT'S YOUR WORK
+
+"I certify that the work submitted for this assignment does not
+violate USC's student conduct code.  In particular, the work is my
+own, not a collaboration, and does not involve code created by other
+people, except for the the resources explicitly mentioned in the CS 455
+Course Syllabus.  And I did not share my solution or parts of it with
+other students in the course."
+
+Initial below to "sign" the above statement:
+
+Xiaofeng Luo
+----------------------------------------------
+ACKNOWLEDGE ANY OUTSIDE SOURCES
+
+List here any code you submitted for this assignment that was written
+with significant help of a course staff member, or code used from the
+textbook.  Be specific about what methods or algorithms are involved,
+and what sections of the textbook are involved (if applicable): [you do
+not need to list any of the code that we wrote for the assignment,
+i.e., the contents of the starter files for the assignment]
+
+
+
+----------------------------------------------
+KNOWN BUGS or LIMITATIONS:
+
+
+
+----------------------------------------------
+DESCRIPTION OF YOUR CLASS DESIGN AND ALGORITHMS AND DATA STRUCTURES USED:
+
+My approach:
+I took the second approach mentioned in the assignment requirements. In other words, I preprocessed
+the dictionary to create an anagram dictionary. Then I generated all the subsets of the rack and
+find the anagrams in the anagram dictionary for each subset. Finally, I calculated the scores for each
+scrabble word I found and printed them with the words as the result.
+
+My class design(including the data structures and algorithms):
+【1. AnagramDictionary.java】
+This class is designed to create an anagram dictionary from the original dictionary.
+
+I used a HashMap to represent the anagram dictionary, with String as the key type and HashSet as the value type.
+Keys in the map are the canonical forms of anagrams with the same elements. The canonical form is the alphabetical
+order of letters in the word.
+Values of keys are a set of anagrams which share the same canonical form. It is easier and faster to check the
+duplicates in the dictionary using a set type.
+
+I used an arraylist to represent the anagrams of a certain subset of the rack.
+
+I turned the subsets of rack into the corresponding canonical form to find the anagrams in the anagram dictionary.
+
+【2. Rack.java】
+This class is designed to build the racks from the inputs.
+
+I used a string to represent the rack. String is an immutable object. So the content of the rack would not be
+changed.
+
+I used a HashMap to store the unique letters in the rack and their multiplicities. The letters are the keys in
+the map with type String. The multiplicities are the values with type Integer.
+
+I used an arraylist to represent the subsets of the rack.
+
+【3. ScoreTable.java】
+This class is designed to store the score of each letter and compute the total score of a certain scrabble word.
+
+I used a constant array to represent the score table. The scores of each letter are stored in the array in the same
+order as the letters in the alphabet.
+
+I turned all the letters of a scrabble word into lowercase and subtracted them with 'a' to find their correponding
+score in the score table array.
+Then I added the scores up to get the total score of a scrabble word.
+
+【4. WordFinder.java】
+This class is the main class to find the scrabble words and their scores.
+
+Since we need to keep the alphabetical order of two words with same score in the output, I used a TreeMap to
+store the scrabble words and their scores.
+Keys are the words with type String.
+Values are the scores with type Integer.
+
+Finally I used the Comparator to sort the result map and printed the results in the required order.
+
+----------------------------------------------
+ANY OTHER NOTES FOR THE GRADER:
+
+
+
+
+
+
+
